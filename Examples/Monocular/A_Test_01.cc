@@ -17,10 +17,10 @@ using namespace std;
 int main(int argc, char* argv[]) {
     std::cout << "Start!" << std::endl;
 
-    VideoCapture cap("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=3280, height=2464, format=(string)NV12, framerate=(fraction)20/1 ! nvvidconv flip-method=0 ! video/x-raw, width=(int)1280, height=(int)720, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink");
+    //VideoCapture cap("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=3280, height=2464, format=(string)NV12, framerate=(fraction)20/1 ! nvvidconv flip-method=0 ! video/x-raw, width=(int)1280, height=(int)720, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink");
 
+    VideoCapture cap(0);
     
-    //
     if(!cap.isOpened()){
         cout << "Error opening video stream" << endl;
         return -1;

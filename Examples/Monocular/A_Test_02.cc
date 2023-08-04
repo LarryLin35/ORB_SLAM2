@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
         //std::cout << "=====Stage 06: imshow==============================" << std::endl;
 
         std::ostringstream filename;
-        filename << "/home/jetson/ORB_SLAM2_2/Examples/Monocular/A_PNG/" << index << ".png";
+        filename << "/home/lin/ORB_SLAM2/Examples/Monocular/A_Png/" << index << ".png";
         cv::imwrite(filename.str(), frame);
 
         // Press 'q' on keyboard to exit
