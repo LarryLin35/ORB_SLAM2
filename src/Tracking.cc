@@ -687,6 +687,20 @@ void Tracking::CreateInitialMapMonocular()
     // Bundle Adjustment
     cout << "New Map created with " << mpMap->MapPointsInMap() << " points" << endl;
 
+    // Get the current time
+   auto now = std::chrono::system_clock::now();
+
+    // Convert it to a time_point for the Epoch (1970-01-01 00:00:00)
+    auto epoch = now.time_since_epoch();
+
+    // Convert that to seconds
+    std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::duration<double>>(epoch);
+
+    // Convert to a double
+    double tframe = seconds.count();
+    std::cout << std::fixed << std::setprecision(6); 
+    std::cout << "Now: " << tframe << std::endl;
+
     Optimizer::GlobalBundleAdjustemnt(mpMap,20);
 
     // Set median depth to 1

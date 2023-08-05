@@ -138,16 +138,12 @@ Examples/Monocular/A_Test_04.cc)
 target_link_libraries(A_Test_04 ${PROJECT_NAME})
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular/Test_A01)
-add_executable(Code_01
-Examples/Monocular/Test_A01/Code_01.cc)
-target_link_libraries(Code_01 ${PROJECT_NAME})
+add_executable(Code_A01
+Examples/Monocular/Test_A01/Code_A01.cc)
+target_link_libraries(Code_A01 ${PROJECT_NAME})
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular/Test_B01)
-add_executable(mono
-Examples/Monocular/Test_B01/mono.cc)
-target_link_libraries(mono ${PROJECT_NAME})
-
-add_executable(testcode
-Examples/Monocular/Test_B01/testcode.cc)
-target_link_libraries(testcode ${PROJECT_NAME})
+add_executable(Code_B01
+Examples/Monocular/Test_B01/Code_B01.cc)
+target_link_libraries(Code_B01 ${PROJECT_NAME})
 
