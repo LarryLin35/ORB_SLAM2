@@ -29,7 +29,7 @@ def calculate_ate(points):
     ate = sum(distances) / len(distances)
     return ate
 
-file_path = 'track_data_04.txt'  
+file_path = 'z3.txt'  
 points = read_data_from_txt(file_path)
 ate = calculate_ate(points)
 print(f"Absolute Trajectory Error (ATE) is: {ate}")
