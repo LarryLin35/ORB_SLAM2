@@ -1,5 +1,4 @@
 #include<iostream>
-#include<algorithm>
 #include<chrono>
 #include<System.h>
 #include<unistd.h>
@@ -29,6 +28,9 @@ void getUserInput() {
 }
  
 int main(int argc, char* argv[]) {
+    if(argc != 3)
+        return 1;
+
     std::thread inputThread(getUserInput); 
     ORB_SLAM2::System SLAM(argv[1],argv[2],ORB_SLAM2::System::MONOCULAR,true);
     cv::VideoCapture cap(0);
@@ -42,10 +44,11 @@ int main(int argc, char* argv[]) {
         std::chrono::duration<double> seconds = std::chrono::duration_cast<std::chrono::duration<double>>(epoch);
 	double tframe = seconds.count();
 
-	SLAM.TrackMonocular(img,tframe);
-
+	if(img.empty())
+            return 1;
 	if (printTimeFlag)
 	    std::cout << std::fixed << std::setprecision(6) << "Current Time: " << tframe << std::endl;
+	SLAM.TrackMonocular(img,tframe);
 
         usleep(5);
     }
@@ -53,7 +56,6 @@ int main(int argc, char* argv[]) {
     SLAM.Shutdown();
     SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");
     cap.release();
-    destroyAllWindows();
     inputThread.join();
 
     return 0;
