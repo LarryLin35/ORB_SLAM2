@@ -154,3 +154,7 @@ add_executable(Code_B02
 Examples/Monocular/Test_B02/Code_B02.cc)
 target_link_libraries(Code_B02 ${PROJECT_NAME})
 
+add_executable(CSC8499_ORBSLAM
+Examples/Monocular/Test_B02/CSC8499_ORBSLAM.cc)
+target_link_libraries(CSC8499_ORBSLAM ${PROJECT_NAME})
+
