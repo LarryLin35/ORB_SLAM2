@@ -4,7 +4,8 @@ cd Thirdparty/DBoW2
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j2
+# make -j # Before
+make -j2 # After
 
 cd ../../g2o
 
@@ -13,7 +14,8 @@ echo "Configuring and building Thirdparty/g2o ..."
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j2
+# make -j # Before
+make -j2 # After
 
 cd ../../../
 
@@ -28,4 +30,5 @@ echo "Configuring and building ORB_SLAM2 ..."
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j2
+# make -j # Before
+make -j2 # After
