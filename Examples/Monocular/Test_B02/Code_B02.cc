@@ -39,12 +39,7 @@ int main(int argc, char* argv[]) {
 
     std::thread inputThread(getUserInput); 
     ORB_SLAM2::System SLAM(argv[1],argv[2],ORB_SLAM2::System::MONOCULAR,true);
-    cv::VideoCapture cap("nvarguscamerasrc sensor_mode=4 ! video/x-raw(memory:NVMM), "
-                         "width=1280, height=720, format=(string)NV12, framerate=(fraction)60/1 ! "
-                         "nvvidconv flip-method=0 ! video/x-raw, width=(int)1280, height=(int)720, "
-                         "format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink");
-
-    //cv::VideoCapture cap(0);
+    cv::VideoCapture cap(0);
     
     while(!endLoopFlag)
     {
